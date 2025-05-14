@@ -4,7 +4,6 @@ import com.example.DynamicPdfSender.exception.PdfGenerationException;
 import com.example.DynamicPdfSender.model.UserDetail;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.FontFactory;
-import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import org.springframework.stereotype.Component;
@@ -28,7 +27,7 @@ public class PdfGeneratorUtil {
 //            }
 
             document.add(new Paragraph("User Details", FontFactory.getFont(FontFactory.HELVETICA_BOLD, 16)));
-            document.add(new Paragraph("Name: " + user.getFirstName() + " " + user.getLastName()));
+            document.add(new Paragraph("Full Name: " + user.getFirstName() + " " + user.getLastName()));
             document.add(new Paragraph("Email: " + user.getEmail()));
             document.add(new Paragraph("FIN: " + user.getFinCode()));
             document.add(new Paragraph("Birth Date: " + user.getBirthDate()));

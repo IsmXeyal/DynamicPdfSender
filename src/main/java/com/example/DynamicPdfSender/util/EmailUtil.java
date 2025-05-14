@@ -2,7 +2,7 @@ package com.example.DynamicPdfSender.util;
 
 import com.example.DynamicPdfSender.exception.EmailSendingException;
 import jakarta.mail.internet.MimeMessage;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -18,8 +18,8 @@ public class EmailUtil {
             MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setTo(to);
-            helper.setSubject("User Information PDF");
-            helper.setText("Attached is your personal information in PDF format.");
+            helper.setSubject("Personal Information PDF - Attachment");
+            helper.setText("Please find attached the PDF document containing your personal information.");
             helper.addAttachment(fileName, new ByteArrayResource(attachmentData));
             javaMailSender.send(message);
         } catch (Exception e) {

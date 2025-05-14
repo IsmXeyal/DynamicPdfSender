@@ -1,17 +1,13 @@
 package com.example.DynamicPdfSender.service;
 
 import com.example.DynamicPdfSender.dto.UserDetailDTO;
-import com.example.DynamicPdfSender.exception.UserAlreadyExistsException;
-import com.example.DynamicPdfSender.exception.UserNotFoundException;
+import com.example.DynamicPdfSender.exception.*;
 import com.example.DynamicPdfSender.model.UserDetail;
 import com.example.DynamicPdfSender.repository.UserRepository;
 import com.example.DynamicPdfSender.util.*;
-import lombok.RequiredArgsConstructor;
-import org.springframework.core.io.ClassPathResource;
+import lombok.*;
 import org.springframework.stereotype.Service;
-import org.springframework.util.FileCopyUtils;
 
-import java.io.IOException;
 
 @Service
 @RequiredArgsConstructor
