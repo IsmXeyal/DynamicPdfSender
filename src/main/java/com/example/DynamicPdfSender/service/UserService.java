@@ -5,4 +5,5 @@ import java.io.IOException;
 
 public interface UserService {
     void createUser(UserDetailDTO userDetailDTO) throws IOException;
+    void uploadPhoto(String finCode, byte[] photo);
 }

@@ -39,4 +39,12 @@ public class UserServiceImpl implements UserService {
 
         userRepository.save(userDetail);
     }
+
+    @Override
+    public void uploadPhoto(String finCode, byte[] photo) {
+        UserDetail userDetail = userRepository.findByFinCode(finCode)
+                .orElseThrow(() -> new UserNotFoundException("User not found with finCode: " + finCode));
+        userDetail.setPhoto(photo);
+        userRepository.save(userDetail);
+    }
 }

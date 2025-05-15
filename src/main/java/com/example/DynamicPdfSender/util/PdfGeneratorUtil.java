@@ -46,7 +46,7 @@ public class PdfGeneratorUtil {
             document.add(Chunk.NEWLINE);
 
             // Table for user data
-            PdfPTable table = new PdfPTable(2); // two columns
+            PdfPTable table = new PdfPTable(2);
             table.setWidthPercentage(100);
             table.setSpacingBefore(10f);
             table.setSpacingAfter(10f);
