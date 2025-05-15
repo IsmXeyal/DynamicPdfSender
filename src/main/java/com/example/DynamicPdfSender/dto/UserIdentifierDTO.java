@@ -5,6 +5,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FinCodeRequestDTO {
+public class UserIdentifierDTO {
     private String finCode;
+    private String email;
 }

@@ -1,8 +1,7 @@
 package com.example.DynamicPdfSender.controller;
 
-import com.example.DynamicPdfSender.dto.FinCodeRequestDTO;
-import com.example.DynamicPdfSender.dto.UserDetailDTO;
-import com.example.DynamicPdfSender.service.UserService;
+import com.example.DynamicPdfSender.dto.*;
+import com.example.DynamicPdfSender.service.*;
 import lombok.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
+    private final PdfService pdfService;
 
     @PostMapping("/create-user")
     public ResponseEntity<String> createUser(@RequestBody UserDetailDTO userDetailDTO) {
@@ -36,10 +36,10 @@ public class UserController {
 //    }
 
     @PostMapping("/send-email")
-    public ResponseEntity<String> sendEmail(@RequestBody FinCodeRequestDTO request) {
+    public ResponseEntity<String> sendEmail(@RequestBody UserIdentifierDTO request) {
         try {
-            userService.sendUserPdfByEmail(request.getFinCode());
-            return ResponseEntity.status(HttpStatus.OK).body("Email sent successfully");
+            pdfService.sendUserPdfByEmail(request);
+            return ResponseEntity.status(HttpStatus.OK).body("Email was sent successfully");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Failed to send email: " + e.getMessage());

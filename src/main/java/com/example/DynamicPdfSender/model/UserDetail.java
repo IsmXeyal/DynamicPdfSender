@@ -23,7 +23,6 @@ public class UserDetail {
     private String finCode;
     private LocalDate birthDate;
 
-//    @Lob
-//    @Column(name = "photo", columnDefinition = "BYTEA")
-//    private byte[] photo;
+    @Column(columnDefinition = "bytea")
+    private byte[] photo;
 }
